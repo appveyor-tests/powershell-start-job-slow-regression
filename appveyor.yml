@@ -1,4 +1,4 @@
-image: Visual Studio 2013
+image: Visual Studio 2015
 
 #init:
 #  - ps: if ($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2015") {write-host "Uninstalling 4014507..."; cmd /c wusa /uninstall /kb:4014507 /quiet /forcerestart}
@@ -10,4 +10,4 @@ test_script:
 - ps: $ErrorActionPreference = "Stop"
 - ps: for ($i = 1; $i -le 3; $i++) {.\runtests.ps1}
 - ps: $duration = (Get-Date) - $start
-- ps: if($duration.TotalMinutes -gt 1) { throw "Test execution was too slow!" }
+- ps: if($duration.TotalSeconds -gt 90) { throw "Test execution was too slow!" }
