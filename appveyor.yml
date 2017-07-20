@@ -1,7 +1,9 @@
-image: Visual Studio 2015
+image: Visual Studio 2017
 
 #init:
 #  - ps: if ($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2015") {write-host "Uninstalling 4014507..."; cmd /c wusa /uninstall /kb:4014507 /quiet /forcerestart}
+install:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 build: off
 
