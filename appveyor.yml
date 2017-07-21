@@ -1,3 +1,6 @@
+init:
+- appveyor version
+
 build: off
 
 test_script:
